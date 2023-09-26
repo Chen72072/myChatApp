@@ -1,13 +1,14 @@
 #!/bin/bash
+
 version='latest'
 
-if [ $# -nq 0 ]; then
+if [ $# -eq 0 ]; then
     version=$1
 fi
 
 docker volume create chat-app-data
-docker build -t  myimage:${version} .
-docker run -v chat-app-data:/chatApp/data -p 5000:5000 --name ChatAppRun myimage:${version}
+docker build -t myimage:${version} .
+docker run -d -v chat-app-data:/chatApp/data -p 5000:5000 --name ChatAppRun myimage:${version}
 
 # docker build -t myimage:${version} .
 # docker run -d -p 5000:5000 --name ChatAppRun myimage:${version}

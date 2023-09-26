@@ -69,7 +69,7 @@ while [ $# -gt 0 ]; do
         -e|--exec)
             echo "Opening a bash shell as root inside the chat-app container"
             # Add your command to open a bash shell here
-            docker exec -it chat-app-run bash
+            docker exec -it ChatAppRun bash
             shift
             ;;
         -de|--deploy)
